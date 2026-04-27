@@ -70,7 +70,7 @@ class Request:
         '''
             Combine method, path, headers, and body into a proper string with crlf ready to go on the wire.
         '''
-        method = self.method.upper()
+        method = self.method
         headers = self.build_headers()
         body = self.body
         host = self.parsed_url['host']
