@@ -1,0 +1,2 @@
+class MultipleRequestContentType(Exception):
+    pass
