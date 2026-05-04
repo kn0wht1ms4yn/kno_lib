@@ -1,4 +1,5 @@
 ## `from kno import requests`
+- NOTE: Don't try to use this in any type of a production application.  It is very simple code made for hackers by hackers.
 - Send WYSIWYG HTTP requests sent with raw `sockets` rather then `urllib`.
 - Works with either HTTP or HTTPS.
 - I was inspired to build this tool after using the Python `requests` library to test for path traversal during a web app security audit.  The problem is that when you send a request using the Python `requests` library then the resulting request that gets sent is not necesarrily what you want.  For example, a path with `../` in it will get normalized and removed.  This is because Python `requests` uses `urllib` behind the scenes which does the normalization.  You can get around this with url encoding like `%2e%2e%2f` which gets past `urllib` normalization.  Then `requests` url decodes the path into `../` and then url encodes it again.  `../` persits through the url encode because it contains url-safe characters.  The point is that there's too much going on for someone conductig a pen test that just wants to be 100% sure of the request that is being sent.
